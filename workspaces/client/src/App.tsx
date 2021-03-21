@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Background from './components/Background/Background';
 
-function App() {
+const App: FC = () => {
   return (
     <>
       <Background>
@@ -11,6 +11,6 @@ function App() {
       </Background>
     </>
   );
-}
+};
 
 export default App;

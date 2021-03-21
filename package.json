@@ -49,7 +49,9 @@
   },
   "lint-staged": {
     "**/*.+(js|jsx|ts|tsx|json|css)": [
-      "yarn format"
+      "yarn format",
+      "./node_modules/.bin/eslint — fix",
+      "git add"
     ]
   }
 }
