@@ -8,7 +8,8 @@ import { TaskRepository } from './task.repository';
 @Injectable()
 export class TasksService {
   constructor(
-    @InjectRepository(TaskRepository) private taskRepository: TaskRepository,
+    @InjectRepository(TaskRepository)
+    private taskRepository: TaskRepository,
   ) {}
 
   async getTasks(filterDTO: TaskFilterDTO): Promise<Task[]> {
