@@ -23,3 +23,10 @@ export class AuthCredentialsDTO {
   })
   password: string;
 }
+
+export interface UserRO {
+  id: string;
+  username: string;
+  email: string;
+  token?: string;
+}
