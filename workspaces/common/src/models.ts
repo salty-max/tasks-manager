@@ -1,8 +1,8 @@
 /**
  * @namespace @monorepo/common
- * @interface IUser 
+ * @interface IUser
  */
-export interface IUser{
+export interface IUser {
   email: string;
-  name: string; 
+  name: string;
 }

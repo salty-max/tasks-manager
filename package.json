@@ -23,7 +23,7 @@
     "build:api": "yarn workspace @tasks-manager/api build",
     "start:client": "yarn workspace @tasks-manager/client start",
     "start:api": "yarn workspace @tasks-manager/api start",
-    "format": "yarn prettier --write",
+    "format": "yarn workspaces run format",
     "lint": "yarn workspaces run lint",
     "start": "yarn workspaces run start",
     "build": "yarn workspaces run build",
@@ -49,7 +49,7 @@
   },
   "lint-staged": {
     "**/*.+(js|jsx|ts|tsx|json|css)": [
-      "yarn format",
+      "yarn prettier --write",
       "./node_modules/.bin/eslint — fix",
       "git add"
     ]

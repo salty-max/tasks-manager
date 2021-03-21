@@ -1,5 +1,5 @@
 /**
  * @namespace @monorepo/common
- * @desc barrel file to export the common files  
+ * @desc barrel file to export the common files
  */
 export * from './models';
