@@ -24,9 +24,14 @@ export class AuthCredentialsDTO {
   password: string;
 }
 
+export interface JwtPayload {
+  id: number;
+}
+
 export interface UserRO {
-  id: string;
+  id: number;
   username: string;
   email: string;
+  createdAt: Date;
   token?: string;
 }
