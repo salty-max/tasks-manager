@@ -1,4 +1,9 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import {
+  HttpException,
+  HttpStatus,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 import { Task, TaskStatus } from '@tasks-manager/common';
 import { CreateTaskDto, GetTasksFilterDto } from './dto';
@@ -32,13 +37,13 @@ export class TasksService {
   }
 
   getTaskById(id: string): Task {
-    const task = this.tasks.find((task) => task.id === id);
+    const found = this.tasks.find((task) => task.id === id);
 
-    if (!task) {
-      throw new HttpException('No task found', HttpStatus.NOT_FOUND);
+    if (!found) {
+      throw new NotFoundException(`Task with id ${id} not found`);
     }
 
-    return task;
+    return found;
   }
 
   createTask(createTaskDto: CreateTaskDto): Task {
@@ -57,21 +62,17 @@ export class TasksService {
   }
 
   updateTaskStatus(id: string, status: TaskStatus): Task {
-    const task = this.getTaskById(id);
+    const found = this.getTaskById(id);
 
-    task.status = status;
+    found.status = status;
 
-    return task;
+    return found;
   }
 
   deleteTask(id: string): Task {
-    const taskToDelete = this.tasks.find((task) => task.id == id);
+    const found = this.getTaskById(id);
 
-    if (!taskToDelete) {
-      throw new HttpException('No task found', HttpStatus.NOT_FOUND);
-    }
-
-    this.tasks = this.tasks.filter((task) => task.id !== taskToDelete.id);
-    return taskToDelete;
+    this.tasks = this.tasks.filter((task) => task.id !== found.id);
+    return found;
   }
 }
