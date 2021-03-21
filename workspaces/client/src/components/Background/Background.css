@@ -1,0 +1,12 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  background-image: radial-gradient(at top left, #74b9ff, transparent),
+    radial-gradient(at top center, #a29bfe, transparent),
+    radial-gradient(at top right, #fd79a8, transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: flex;
+}

@@ -1,0 +1,8 @@
+{
+  "name": "@tasks-manager/common",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "main:src": "src/index.ts",
+  "dependencies": {}
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@tasks-manager/root",
+  "version": "0.1.0",
+  "description": "A tasks manager written with React and Nest",
+  "main": "index.js",
+  "repository": "https://github.com/salty-max/tasks-manager.git",
+  "author": "salty-max <max@jellycat.fr>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "workspaces/*"
+    ],
+    "nohoist": [
+      "workspaces/**/webpack-dev-server",
+      "**/babel-loader",
+      "**/babel-jest"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"todo\"",
+    "build:client": "yarn workspace @tasks-manager/client build",
+    "build:api": "yarn workspace @tasks-manager/api build",
+    "start:client": "yarn workspace @tasks-manager/client start",
+    "start:api": "yarn workspace @tasks-manager/api start",
+    "format": "yarn prettier --write",
+    "lint": "yarn workspaces run lint",
+    "start": "yarn workspaces run start",
+    "build": "yarn workspaces run build",
+    "check-format": "yarn prettier --list-different",
+    "validate": "npm-run-all --parallel check-format lint build"
+  },
+  "keywords": [
+    "nestjs",
+    "react",
+    "monorepo",
+    "workspaces"
+  ],
+  "devDependencies": {
+    "husky": "^5.1.3",
+    "lint-staged": "^10.5.4"
+  }
+}
