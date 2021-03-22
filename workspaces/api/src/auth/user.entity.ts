@@ -3,12 +3,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { UserRO } from './auth-credentials.dto';
+import { Task } from 'src/tasks/task.entity';
 
 @Entity()
 @Unique(['username', 'email'])
@@ -27,6 +29,9 @@ export class User extends BaseEntity {
 
   @Column()
   salt: string;
+
+  @OneToMany((type) => Task, (task) => task.owner, { eager: true })
+  tasks: Task[];
 
   @CreateDateColumn()
   createdAt: Date;
