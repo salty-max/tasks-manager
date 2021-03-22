@@ -30,7 +30,7 @@ export class User extends BaseEntity {
   @Column()
   salt: string;
 
-  @OneToMany((type) => Task, (task) => task.owner, { eager: true })
+  @OneToMany(() => Task, (task) => task.owner, { eager: true })
   tasks: Task[];
 
   @CreateDateColumn()
