@@ -22,11 +22,14 @@ export class TasksService {
     private taskRepository: TaskRepository,
   ) {}
 
-  async getTasks(filterDTO: TaskFilterDTO, user: User): Promise<Task[]> {
-    return await this.taskRepository.getTasks(filterDTO, user);
+  async getTasks(
+    filterDTO: TaskFilterDTO,
+    user: Partial<User>,
+  ): Promise<Task[]> {
+    return this.taskRepository.getTasks(filterDTO, user);
   }
 
-  async getTaskById(id: number, user: User): Promise<Task> {
+  async getTaskById(id: number, user: Partial<User>): Promise<Task> {
     const found = await this.taskRepository.findOne({
       where: { id, ownerId: user.id },
     });
@@ -38,7 +41,7 @@ export class TasksService {
     return found;
   }
 
-  async createTask(taskDTO: TaskDTO, user: User): Promise<Task> {
+  async createTask(taskDTO: TaskDTO, user: Partial<User>): Promise<Task> {
     const task = await this.taskRepository.create({
       ...taskDTO,
       status: TaskStatus.OPEN,
@@ -62,7 +65,7 @@ export class TasksService {
   async updateTaskStatus(
     id: number,
     status: TaskStatus,
-    user: User,
+    user: Partial<User>,
   ): Promise<Task> {
     const task = await this.getTaskById(id, user);
     task.status = status;
@@ -72,7 +75,7 @@ export class TasksService {
     return task;
   }
 
-  async deleteTask(id: number, user: User): Promise<void> {
+  async deleteTask(id: number, user: Partial<User>): Promise<void> {
     const res = await this.taskRepository.delete({ id, ownerId: user.id });
 
     if (!res.affected) {

@@ -9,7 +9,8 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-import { Task } from 'src/tasks/task.entity';
+
+import { Task } from '../tasks/task.entity';
 
 import { UserRO } from './auth-credentials.dto';
 

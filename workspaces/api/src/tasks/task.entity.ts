@@ -1,4 +1,3 @@
-import { User } from 'src/auth/user.entity';
 import {
   BaseEntity,
   Column,
@@ -9,6 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+import { User } from '../auth/user.entity';
 import { TaskStatus } from '../enums/task-status.enum';
 
 @Entity()

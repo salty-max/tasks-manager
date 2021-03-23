@@ -9,7 +9,10 @@ import { Task } from './task.entity';
 export class TaskRepository extends Repository<Task> {
   private logger = new Logger('TaskRepository');
 
-  async getTasks(filterDTO: TaskFilterDTO, user: User): Promise<Task[]> {
+  async getTasks(
+    filterDTO: TaskFilterDTO,
+    user: Partial<User>,
+  ): Promise<Task[]> {
     const { status, search } = filterDTO;
     const query = this.createQueryBuilder('task');
 
