@@ -1,9 +1,12 @@
+import config = require('config');
 import { UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UserRO } from './auth-credentials.dto';
 import { UserRepository } from './user.repository';
+
+const { secret } = config.get('jwt');
 
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
@@ -12,7 +15,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: 'ILoveBulbasaur',
+      secretOrKey: process.env.JWT_SECRET || secret,
     });
   }
 

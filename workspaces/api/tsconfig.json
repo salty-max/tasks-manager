@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "strictPropertyInitialization": false,
+    "esModuleInterop": true,
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
