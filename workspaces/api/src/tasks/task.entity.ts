@@ -1,4 +1,3 @@
-import { TaskStatus } from '@tasks-manager/common';
 import { User } from 'src/auth/user.entity';
 import {
   BaseEntity,
@@ -9,6 +8,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import { TaskStatus } from '../enums/task-status.enum';
 
 @Entity()
 export class Task extends BaseEntity {

@@ -1,8 +1,8 @@
 import { InternalServerErrorException, Logger } from '@nestjs/common';
 import { User } from 'src/auth/user.entity';
 import { EntityRepository, Repository } from 'typeorm';
-import { TaskFilterDTO } from './task.dto';
 
+import { TaskFilterDTO } from './task.dto';
 import { Task } from './task.entity';
 
 @EntityRepository(Task)

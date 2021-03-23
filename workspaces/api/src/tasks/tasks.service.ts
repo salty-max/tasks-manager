@@ -5,8 +5,9 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { TaskStatus } from '@tasks-manager/common';
 import { User } from 'src/auth/user.entity';
+
+import { TaskStatus } from '../enums/task-status.enum';
 
 import { TaskDTO, TaskFilterDTO } from './task.dto';
 import { Task } from './task.entity';

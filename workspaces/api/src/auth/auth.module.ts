@@ -1,11 +1,12 @@
 import config = require('config');
-import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
+import { Module } from '@nestjs/common';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
+
 import { JwtStrategy } from './jwt.strategy';
+import { AuthService } from './auth.service';
+import { AuthController } from './auth.controller';
 import { UserRepository } from './user.repository';
 
 const { expiresIn, secret } = config.get('jwt');

@@ -14,10 +14,12 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { TaskStatus } from '@tasks-manager/common';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
 import { TaskStatusValidationPipe } from 'src/pipes/task-status-validation.pipe';
+
+import { TaskStatus } from '../enums/task-status.enum';
+
 import { TaskDTO, TaskFilterDTO } from './task.dto';
 import { Task } from './task.entity';
 import { TasksService } from './tasks.service';

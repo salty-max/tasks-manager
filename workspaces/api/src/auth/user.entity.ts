@@ -1,3 +1,4 @@
+import * as bcrypt from 'bcryptjs';
 import {
   BaseEntity,
   Column,
@@ -8,9 +9,9 @@ import {
   Unique,
   UpdateDateColumn,
 } from 'typeorm';
-import * as bcrypt from 'bcrypt';
-import { UserRO } from './auth-credentials.dto';
 import { Task } from 'src/tasks/task.entity';
+
+import { UserRO } from './auth-credentials.dto';
 
 @Entity()
 @Unique(['username', 'email'])
